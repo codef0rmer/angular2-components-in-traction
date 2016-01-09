@@ -1,10 +1,27 @@
 <html ng-app="DI">
 <head>
-  <title>AngularJS: DI</title>
-  <script src="../bower_components/angular/angular.js"></script>
-  <script src="../js/ch01/di.js"></script>
+  <title>Angular2: DI</title>
+  <!-- 1. Load libraries -->
+  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/typescript/lib/typescript.js"></script>
+  
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true
+      }
+    });
+    System.import('../js/ch01/di');
+  </script>
 </head>
-<body ng-controller="SayHi">
-  <h1>Check the console</h1>
+<body>
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
 </body>
 </html>
