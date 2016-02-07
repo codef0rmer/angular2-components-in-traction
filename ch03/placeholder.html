@@ -1,13 +1,28 @@
-<html ng-app="PlaceholderApp">
+<html>
 <head>
-  <title>Placeholder Directive</title>
-  <!--<script type="text/javascript" src="http://code.angularjs.org/snapshot/angular.js"></script>-->
-  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="../js/ch03/placeholder.js"></script>
+  <title>Angular2: Placeholder Directive</title>
   <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <!-- 1. Load libraries -->
+  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/typescript/lib/typescript.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true
+      }
+    });
+    System.import('../js/ch03/placeholder');
+  </script>
 </head>
-<body ng-controller="ProfileCtrl">
-  <img ng-src="{{userImage}}" class="img-circle" on-image-load/>
-  <img ng-src="{{userImageFail}}" class="img-circle" on-image-load/>
+<body>
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
 </body>
 </html>
