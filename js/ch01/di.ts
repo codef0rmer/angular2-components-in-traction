@@ -12,13 +12,14 @@ class HelloService {
 
 @Component({
   selector: 'ng-app',
-  template: '<h1>Check the console</h1>'
+  template: '<h1>Check the console</h1>',
+  providers: [HelloService]
 })
 export class DI {
-  constructor(Hello: HelloService) {
-    Hello.greet('Angular2');
-    console.log(Hello.name);
+  constructor(public Hello: HelloService) {
+    this.Hello.greet('Angular2');
+    console.log(this.Hello.name);
   }
 }
 
-bootstrap(DI, [HelloService]);
+bootstrap(DI);
