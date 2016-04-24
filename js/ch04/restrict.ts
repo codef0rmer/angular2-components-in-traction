@@ -1,10 +1,11 @@
-import {Component, Directive, ElementRef} from 'angular2/core';
+import {Component, ElementRef} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
-@Directive({
-  selector: 'super-marquee,[super-marquee],.super-marquee'
+@Component({
+  selector: 'super-marquee,[super-marquee],.super-marquee',
+  template: ''
 })
-class SuperMarquee {
+class SuperMarqueeComponent {
   constructor(private _element: ElementRef) {
     var scrollingText = `<marquee>
       <div class="wave">
@@ -31,7 +32,7 @@ class SuperMarquee {
     <!-- Class -->
     <div class='super-marquee'></div>
   `,
-  directives: [SuperMarquee]
+  directives: [SuperMarqueeComponent]
 })
 export class MyApp {
   

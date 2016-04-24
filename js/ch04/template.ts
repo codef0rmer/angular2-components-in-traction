@@ -1,12 +1,15 @@
-import {Component, Directive, ElementRef} from 'angular2/core';
+import {Component, ElementRef} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
-@Directive({
-  selector: 'super-marquee,[super-marquee],.super-marquee'
+@Component({
+  selector: 'super-marquee,[super-marquee],.super-marquee',
+  template: `<marquee><div class="wave" [innerHTML]="scrollingText"></div></marquee>`
 })
-class SuperMarquee {
+class SuperMarqueeComponent {
+  scrollingText: string;
+
   constructor(private _element: ElementRef) {
-    _element.nativeElement.innerHTML = '<marquee><div class="wave">' + _element.nativeElement.getAttribute('data-text') + '</div></marquee>';
+    this.scrollingText =  _element.nativeElement.getAttribute('data-text');
   }
 }
 
@@ -14,13 +17,13 @@ class SuperMarquee {
   selector: 'ng-app',
   template: `
     <!-- Element -->
-    <super-marquee data-text="<span>AngularJS </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>"></super-marquee>
+    <super-marquee data-text="<span>Angular2 </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>"></super-marquee>
     <!-- Attribute -->
-    <div super-marquee data-text="<span>AngularJS </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>"></div>
+    <div super-marquee data-text="<span>Angular2 </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>"></div>
     <!-- Class -->
-    <div class='super-marquee' data-text="<span>AngularJS </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>"></div>
+    <div class='super-marquee' data-text="<span>Angular2 </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>"></div>
   `,
-  directives: [SuperMarquee]
+  directives: [SuperMarqueeComponent]
 })
 export class MyApp {
   
