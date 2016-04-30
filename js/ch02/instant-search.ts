@@ -5,7 +5,7 @@ import {bootstrap} from 'angular2/platform/browser';
   name: 'search'
 })
 class SearchPipe implements PipeTransform {
-  transform(favorites, [searchTerm]) {
+  transform(favorites, searchTerm) {
     return favorites.filter((favorite) => {
       return favorite.toLowerCase().indexOf((searchTerm || '').toLowerCase()) >= 0;
     });
@@ -19,7 +19,7 @@ class SearchPipe implements PipeTransform {
       <input type='text' [(ngModel)]="search" /><br><br>
 
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="#favorite of favorites | search: search" [textContent]="favorite"></li>
+        <li class="list-group-item" *ngFor="let favorite of favorites | search: search" [textContent]="favorite"></li>
       </ul>
     </div>
   `,
