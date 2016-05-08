@@ -1,11 +1,24 @@
-<html ng-app="MarqueeApp">
+<html>
 <head>
   <title>Final Extended superMarquee</title>
-  <!-- v1.10.2 is literally not required but was added later to avoid jquery issue while appending EMPTY SPACE to element and fix failing tests -->
-  <script type="text/javascript" src="../bower_components/jquery/jquery.js"></script>
-  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-  <!--<script type="text/javascript" src="http://code.angularjs.org/snapshot/angular.js"></script>-->
-  <script type="text/javascript" src="../js/ch04/super-marquee.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/typescript/lib/typescript.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true
+      }
+    });
+    System.import('../js/ch04/super-marquee');
+  </script>
   <style type="text/css">
     div.wave-wrapper {
       width: 500px;
@@ -85,13 +98,7 @@
   </style>
 </head>
 <body>
-  <!-- Element -->
-  <super-marquee looper validate data-text="AngularJS Directives inAction, Yey..!!" data-scrolldelay="2" data-direction="up" data-wavedelay="0.015"></super-marquee>
-
-  <!-- Attribute -->
-  <!-- <div looper super-marquee looper validate data-text="AngularJS Directives inAction, Yey..!!" data-scrolldelay="10" data-direction="left" data-wavedelay="0.015"></div> -->
-
-  <!-- Class -->
-  <!-- <div class='super-marquee looper validate' data-text="AngularJS Directives inAction, Yey..!!" data-scrolldelay="10" data-direction="right" data-wavedelay="0.015"></div> -->
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
 </body>
 </html>
