@@ -28,10 +28,10 @@
   "author": "Amit Gharat a.k.a codef0rmer",
   "license": "MIT",
   "dependencies": {
-    "angular2": "2.0.0-beta.17",
+    "angular2": "^2.0.0-beta.17",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.35.0",
-    "jquery": "^2.2.3",
+    "jquery": "^1.10.2",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "0.19.6",
