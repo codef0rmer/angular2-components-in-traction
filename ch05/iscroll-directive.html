@@ -1,61 +1,24 @@
-<html ng-app="App">
+<html>
 <head>
   <title>iScroll Angular Directive</title>
-  <!--<script type="text/javascript" src="http://code.angularjs.org/snapshot/angular.js"></script>-->
-  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/typescript/lib/typescript.js"></script>
   <script type="text/javascript" src="../bower_components/iscroll/build/iscroll.js"></script>
   <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
-  <script type="text/javascript">
-    var App = angular.module('App', []);
 
-    App.directive('iscroll', function() {
-      return {
-        restrict: 'EAC',
-        scope: {
-          scrollbars: '=?',
-          mousewheel: '=?'
-        },
-        link: function(scope, element) {
-          var myScroll = null;
-
-          scope.$watch(function() {
-            if (myScroll) {
-              myScroll.refresh();
-            } else {
-              myScroll = new IScroll(element[0], {
-                scrollbars: angular.isDefined(scope.scrollbars) ? scope.scrollbars : true,
-                mouseWheel: angular.isDefined(scope.mousewheel) ? scope.mousewheel : true
-              });
-            }
-          });
-        }
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true
       }
     });
-
-    App.controller('MainCtrl', function($scope) {
-      $scope.movies = [
-        'Her', 
-        'Amazing Spiderman 3D', 
-        'Silicon Valley HBO', 
-        'Anchorman 2', 
-        '300 Rise of an Empire', 
-        'The Hobbit The Desolation of Smaug', 
-        'Fandry', 
-        '12 Years a Slave', 
-        'Frozen', 
-        'Ender`s Game', 
-        'Gravity', 
-        'Riddick', 
-        'Jobs', 
-        'The Hobbit The Unexpected Journey', 
-        'Man of Steel', 
-        'Turbo', 
-        'After Earth', 
-        'Europa Report', 
-        'Forest Gump', 
-        'Now You See Me'
-      ];
-    });
+    System.import('../js/ch05/iscroll-directive');
   </script>
   <style type="text/css">
     #wrapper {
@@ -70,16 +33,8 @@
     }
   </style>
 </head>
-<body ng-controller="MainCtrl">
-  <div id="wrapper" iscroll data-scrollbars="true" data-mousewheel="true">
-    <div>
-      <ul class="list-group">
-        <li class="list-group-item" ng-repeat="movie in movies">
-          <button type="button" class="close" ng-click="movies.splice($index, 1)">&times;</button>
-          <span ng-bind="movie"></span>
-        </li>
-      </ul>
-    </div>
-  </div>
+<body>
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
 </body>
 </html>
