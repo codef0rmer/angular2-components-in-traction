@@ -1,15 +1,27 @@
-<html ng-app="SpinnerApp">
+<html>
 <head>
   <title>Scope: false</title>
-  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-  <!--<script type="text/javascript" src="http://code.angularjs.org/snapshot/angular.js"></script>-->
-  <script type="text/javascript" src="../js/ch05/scope-false.js"></script>
-  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">  
-</head>
-<body style="padding: 50px;" ng-controller="ScopeCtrl">
-  <adia-spinner></adia-spinner>
+  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/typescript/lib/typescript.js"></script>
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
 
-  <!-- Multiple spinners cause abnormal behavior because of shared scope -->
-  <adia-spinner></adia-spinner>
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true
+      }
+    });
+    System.import('../js/ch05/scope-false');
+  </script>
+</head>
+<body style="padding: 50px;">
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
 </body>
 </html>
