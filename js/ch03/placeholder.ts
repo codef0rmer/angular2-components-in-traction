@@ -1,19 +1,26 @@
-import {Component, Directive, ElementRef} from 'angular2/core';
+import {Component, Directive, ElementRef, Renderer} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
 @Directive({
   selector: '[onImageLoad]'
 })
 export class onImageLoad {
-  constructor(private _element: ElementRef) {
-    _element.nativeElement.addEventListener('load', function() {
-      this.style.display = '';
-    }, false);
+  constructor(private _renderer: Renderer, private _element: ElementRef) {
+    this._renderer.listen(this._element.nativeElement, 'load', () => {
+      this._renderer.setElementStyle(this._element.nativeElement, 'display', '');
+    });
 
-    _element.nativeElement.addEventListener('error', function() {
-      this.style.display = 'none';
-      this.setAttribute('src', 'http://lorempixel.com/100/100/cats/');
-    }, false);
+    this._renderer.listen(this._element.nativeElement, 'error', () => {
+      this._renderer.setElementStyle(this._element.nativeElement, 'display', 'none');
+      this._renderer.setElementAttribute(this._element.nativeElement, 'src', 'http://lorempixel.com/100/100/cats/');
+    });
+    // _element.nativeElement.addEventListener('load', function() {
+    //   this.style.display = '';
+    // }, false);
+    // _element.nativeElement.addEventListener('error', function() {
+    //   this.style.display = 'none';
+    //   this.setAttribute('src', 'http://lorempixel.com/100/100/cats/');
+    // }, false);
   }
 }
 
