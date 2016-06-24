@@ -1,4 +1,4 @@
-import {Component, ElementRef} from 'angular2/core';
+import {Component, ElementRef, Renderer} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
 @Component({
@@ -6,7 +6,7 @@ import {bootstrap} from 'angular2/platform/browser';
   template: ''
 })
 class SuperMarqueeComponent {
-  constructor(private _element: ElementRef) {
+  constructor(private _element: ElementRef, private _renderer: Renderer) {
     var scrollingText = `<marquee>
       <div class="wave">
         <span>Angular2 </span>
@@ -16,7 +16,7 @@ class SuperMarqueeComponent {
       </div>\
     </marquee>`;
 
-    _element.nativeElement.innerHTML = scrollingText;
+    this._renderer.setElementProperty(this._element.nativeElement, 'innerHTML', scrollingText);
   }
 }
 
