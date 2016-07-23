@@ -1,5 +1,6 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, Input, Output } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'adia-spinner',
@@ -13,16 +14,16 @@ import {bootstrap} from 'angular2/platform/browser';
 })
 class AdiaSpinnerDirective {
   @Input() val: number;
-  @Output() valChange = new EventEmitter();
+  @Output() valChange = new Subject();
 
   inc() {
     this.val++;
-    this.valChange.emit(this.val);
+    this.valChange.next(this.val);
   }
 
   dec() {
     this.val--;
-    this.valChange.emit(this.val);
+    this.valChange.next(this.val);
   }
 
   spinnerText() {

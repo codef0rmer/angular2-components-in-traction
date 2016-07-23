@@ -1,5 +1,5 @@
-import {Component, ElementRef, Renderer} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, ElementRef, Renderer } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
 
 @Component({
   selector: 'super-marquee,[super-marquee],.super-marquee',

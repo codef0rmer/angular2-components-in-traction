@@ -1,64 +1,60 @@
 <html>
-  <head>
-    <title>Restrict Component in Angular2</title>
-    <!-- 1. Load libraries -->
-    <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="../node_modules/systemjs/dist/system.src.js"></script>
-    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="../node_modules/typescript/lib/typescript.js"></script>
+<head>
+  <title>Restrict Component in Angular2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- 2. Configure SystemJS -->
-    <script>
-      System.config({
-        transpiler: 'typescript',
-        typescriptOptions: {
-          emitDecoratorMetadata: true,
-          experimentalDecorators: true
-        }
-      });
-      System.import('../js/ch04/restrict');
-    </script>
-    <style type="text/css">
-      div.wave > span {
-        float: left;
-        text-align: center;
-        padding-right: 40px;
-        -webkit-animation: animate 1.5s ease-in alternate infinite;
-          -moz-animation: animate 1.5s ease-in alternate infinite;
-            -ms-animation: animate 1.5s ease-in alternate infinite;
-                animation: animate 1.5s ease-in alternate infinite;
-      }
-      div.wave > span:nth-child(1) {
-        // first word will use a delay from the base animation
-      }
-      div.wave > span:nth-child(2) {
-        -webkit-animation-delay: .4s;
-          -moz-animation-delay: .4s;
-            -ms-animation-delay: .4s;
-                animation-delay: .4s;
-      }
-      div.wave > span:nth-child(3) {
-        -webkit-animation-delay: .8s;
-          -moz-animation-delay: .8s;
-            -ms-animation-delay: .8s;
-                animation-delay: .8s;
-      }
-      div.wave > span:nth-child(4) {
-        -webkit-animation-delay: 1.2s;
-          -moz-animation-delay: 1.2s;
-            -ms-animation-delay: 1.2s;
-                animation-delay: 1.2s;
-      }
+  <!-- 1. Load libraries -->
+  <script src="../node_modules/core-js/client/shim.min.js"></script>
+  <script src="../node_modules/zone.js/dist/zone.js"></script>
+  <script src="../node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
 
-      @-webkit-keyframes animate { to { margin-top: 100px; } }
-        @-moz-keyframes animate { to { margin-top: 100px; } }
-          @-ms-keyframes animate { to { margin-top: 100px; } }
-              @keyframes animate { to { margin-top: 100px; } }
-    </style>
-  </head>
-  <body>
-    <!-- 3. Display the application -->
-    <ng-app>Loading...</ng-app>
-  </body>
+  <!-- 2. Configure SystemJS -->
+  <script src="../systemjs.config.js"></script>
+  <script>
+    System.import('../js/ch04/restrict.js').catch(function(err){ console.error(err); });
+  </script>
+  <style type="text/css">
+    div.wave > span {
+      float: left;
+      text-align: center;
+      padding-right: 40px;
+      -webkit-animation: animate 1.5s ease-in alternate infinite;
+        -moz-animation: animate 1.5s ease-in alternate infinite;
+          -ms-animation: animate 1.5s ease-in alternate infinite;
+              animation: animate 1.5s ease-in alternate infinite;
+    }
+    div.wave > span:nth-child(1) {
+      // first word will use a delay from the base animation
+    }
+    div.wave > span:nth-child(2) {
+      -webkit-animation-delay: .4s;
+        -moz-animation-delay: .4s;
+          -ms-animation-delay: .4s;
+              animation-delay: .4s;
+    }
+    div.wave > span:nth-child(3) {
+      -webkit-animation-delay: .8s;
+        -moz-animation-delay: .8s;
+          -ms-animation-delay: .8s;
+              animation-delay: .8s;
+    }
+    div.wave > span:nth-child(4) {
+      -webkit-animation-delay: 1.2s;
+        -moz-animation-delay: 1.2s;
+          -ms-animation-delay: 1.2s;
+              animation-delay: 1.2s;
+    }
+
+    @-webkit-keyframes animate { to { margin-top: 100px; } }
+      @-moz-keyframes animate { to { margin-top: 100px; } }
+        @-ms-keyframes animate { to { margin-top: 100px; } }
+            @keyframes animate { to { margin-top: 100px; } }
+  </style>
+</head>
+<body>
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
+</body>
 </html>

@@ -1,5 +1,5 @@
-import {Component, Input, Output, OnInit} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, Input, OnInit } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
 
 @Component({
   selector: 'adia-spinner',

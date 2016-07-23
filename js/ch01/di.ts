@@ -1,5 +1,5 @@
-import {Component, Injectable} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, Injectable } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
 
 @Injectable()
 class HelloService {

@@ -1,4 +1,6 @@
-bower_components
 node_modules
 todo.TODO
 *.map
+.DS_Store
+js/**/*.js
+typings/

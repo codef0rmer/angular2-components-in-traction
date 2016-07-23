@@ -1,5 +1,5 @@
-import {Component, Pipe, PipeTransform} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, Pipe, PipeTransform } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
 
 @Pipe({
   name: 'search'

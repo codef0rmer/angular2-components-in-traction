@@ -1,21 +1,23 @@
 <html>
-  <head>
-    <title>Pipes in Angular2</title>
-    <!-- 1. Load libraries -->
-  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+<head>
+  <title>Pipes in Angular2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 1. Load libraries -->
+  <script src="../node_modules/core-js/client/shim.min.js"></script>
+  <script src="../node_modules/zone.js/dist/zone.js"></script>
+  <script src="../node_modules/reflect-metadata/Reflect.js"></script>
   <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="../node_modules/typescript/lib/typescript.js"></script>
 
   <!-- 2. Configure SystemJS -->
+  <script src="../systemjs.config.js"></script>
   <script>
-    System.config({ transpiler: 'typescript' });
-    System.import('../js/ch02/pipe');
+    System.import('../js/ch02/pipe.js').catch(function(err){ console.error(err); });
   </script>
-  </head>
-  <body>
-    <!-- 3. Display the application -->
-    <ng-app>Loading...</ng-app>
-  </body>
+</head>
+<body>
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
+</body>
 </html>

@@ -14,8 +14,10 @@ NodeJS and NPM are prerequisite.
 cd Angular Directives in Traction/
 bower install
 npm install
+npm run typings install
 npm install -g karma-cli
 node_modules/protractor/bin/webdriver-manager update
+npm start
 ```
 
 There are chapter wise folders you can go through to check out examples.
@@ -32,26 +34,15 @@ npm run test-e2e
 Using the Companion Suite
 -------------------------
 *Chapter 1: ch01/*
- * notification-panel-javascript.html
- * notification-panel-angular.html
+ * angular-template.html
  * twoway-databinding.html
  * di.html
- * angular-template.html
- * accordion-tb.html
- * accordion-ab.html
- * noop.html
 
 *Chapter 2: ch02/*
- * value.html
- * constant.html
- * factory.html
- * service.html
  * provider.html
- * filter.html
- * config.html
- * modeling.html
- * controller.html
- * controller-nested.html
+ * pipe.html
+ * component.html
+ * component-nested.html
  * instant-search.html
 
 *Chapter 3: ch03/*
@@ -61,9 +52,7 @@ Using the Companion Suite
  * restrict.html
  * template.html
  * templateUrl.html
- * replace.html
  * priority.html
- * terminal.html
  * super-marquee.html
  * iscroll-directive.html
 

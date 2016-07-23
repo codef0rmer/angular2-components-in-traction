@@ -1,5 +1,6 @@
-import {Component, Input, Output, OnInit, EventEmitter} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, Input, Output, OnInit } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'adia-spinner',
@@ -18,7 +19,7 @@ class AdiaSpinnerDirective implements OnInit {
   @Input('data-step') interval: number;
   @Input('data-type') type: string;
   @Input('data-list') list: string[];
-  @Output('change') valChange = new EventEmitter();
+  @Output('change') valChange = new Subject();
   
   opt: any;
   isListType: boolean;
@@ -59,7 +60,7 @@ class AdiaSpinnerDirective implements OnInit {
   }
 
   notify() {
-    this.valChange.emit({value: this.opt.default, text: this.spinnerText()});
+    this.valChange.next({value: this.opt.default, text: this.spinnerText()});
   }
 }
 
@@ -71,7 +72,7 @@ class AdiaSpinnerDirective implements OnInit {
         <div class="panel panel-default">
           <div class="panel-heading"><b>Job Application Form</b></div>
           <div class="panel-body">
-            <form class="form-horizontal" role="form">
+            <div class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="col-xs-4 col-lg-2 control-label">
                   Rate Yourself:
@@ -94,7 +95,7 @@ class AdiaSpinnerDirective implements OnInit {
                   <button class="btn btn-lg btn-primary" (click)="submit()">I'm Interested</button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

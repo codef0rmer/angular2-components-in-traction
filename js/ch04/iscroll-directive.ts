@@ -1,5 +1,5 @@
-import {Component, Directive, ElementRef, OnInit, AfterViewInit} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component, Directive, ElementRef, AfterViewInit } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic'
 
 declare var IScroll;
 
