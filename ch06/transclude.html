@@ -1,14 +1,25 @@
 <html ng-app="TranscludeApp">
 <head>
   <title>Transclude</title>
-  <script src="../bower_components/angular/angular.js"></script>
-  <!--<script type="text/javascript" src="http://code.angularjs.org/snapshot/angular.js"></script>-->
-  <script src="../js/ch06/transclude.js"></script>
-  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 1. Load libraries -->
+  <script src="../node_modules/core-js/client/shim.min.js"></script>
+  <script src="../node_modules/zone.js/dist/zone.js"></script>
+  <script src="../node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/iscroll/build/iscroll.js"></script>
+  <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+  <!-- 2. Configure SystemJS -->
+  <script src="../systemjs.config.js"></script>
+  <script>
+    System.import('../js/ch06/transclude.js').catch(function(err){ console.error(err); });
+  </script>
 </head>
 <body style="padding: 50px;">
-  <alert data-state="warning"><b>Hang on..!</b> Document may take some time to upload.</alert>
-  
-  <alert data-state="success"><b>Well done..!</b> You jump to the next level.</alert>
+  <!-- 3. Display the application -->
+  <ng-app>Loading...</ng-app>
 </body>
 </html>

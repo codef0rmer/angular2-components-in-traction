@@ -4,3 +4,4 @@ todo.TODO
 .DS_Store
 js/**/*.js
 typings/
+npm-debug.log

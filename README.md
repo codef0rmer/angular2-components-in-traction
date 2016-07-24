@@ -63,16 +63,9 @@ Using the Companion Suite
  * iscroll-directive.html
 
 *Chapter 6: ch06/*
- * base.html
- * compile-vs-link.html
- * base-link.html
  * transclude.html
- * base-transclude.html
- * base-controller.html
- * base-require.html
  * ng-model.html
  * ng-model-spinner.html
- * base-thumbnailviewer.html
  * thumbnail-viewer.html
 
 *Chapter 7: ch07/*
