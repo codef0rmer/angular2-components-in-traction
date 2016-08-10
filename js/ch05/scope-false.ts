@@ -1,5 +1,6 @@
-import { Component, Input, Output } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Input, Output } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -38,11 +39,17 @@ class AdiaSpinnerDirective {
 
     <!-- Multiple spinners cause abnormal behavior because of shared scope -->
     <adia-spinner [(val)]="value"></adia-spinner>
-  `,
-  directives: [AdiaSpinnerDirective]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   value: number = 1;
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, AdiaSpinnerDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

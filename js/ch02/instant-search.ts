@@ -1,5 +1,7 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Pipe, PipeTransform } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Pipe({
   name: 'search'
@@ -22,10 +24,9 @@ class SearchPipe implements PipeTransform {
         <li class="list-group-item" *ngFor="let favorite of favorites | search: search" [textContent]="favorite"></li>
       </ul>
     </div>
-  `,
-  pipes: [SearchPipe]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   favorites: String[] = [
     'Christopher Nolan',
     'AR Rehman',
@@ -34,4 +35,11 @@ export class MyApp {
   ];
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, SearchPipe],
+  imports:      [BrowserModule, FormsModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

@@ -1,5 +1,6 @@
-import { Component, Directive, ElementRef, AfterViewInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Directive, ElementRef, AfterViewInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 declare var IScroll;
 
@@ -28,10 +29,9 @@ class IscrollDirective implements AfterViewInit {
         </ul>
       </div>
     </div>
-  `,
-  directives: [IscrollDirective]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   movies: String[] = [
     'Her', 
     'Amazing Spiderman 3D', 
@@ -56,4 +56,11 @@ export class MyApp {
   ];
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, IscrollDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

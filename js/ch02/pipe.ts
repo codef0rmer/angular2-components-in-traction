@@ -1,6 +1,7 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
-
+import { NgModule, Component, Pipe, PipeTransform } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Pipe({
   name: 'linky'
@@ -26,11 +27,17 @@ class UppercasePipe implements PipeTransform {
 
 @Component({
   selector: 'ng-app',
-  template: '<div [innerHTML]="message | linky | uppercase"></div>',
-  pipes: [LinkyPipe, UppercasePipe]
+  template: '<div [innerHTML]="message | linky | uppercase"></div>'
 })
-export class MyApp {
+export class MyAppComponent {
   message: string = 'Searching in http://bing.com for the sake of knowing...';
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, LinkyPipe, UppercasePipe],
+  imports:      [BrowserModule, FormsModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

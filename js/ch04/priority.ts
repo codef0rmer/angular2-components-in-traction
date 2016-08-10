@@ -1,5 +1,6 @@
-import { Component, Directive, ElementRef, OnInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Directive, ElementRef, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 declare var $: any;
 
@@ -73,11 +74,17 @@ class ValidateDirective implements OnInit {
 
     <!-- Class -->
     <div class='super-marquee validate looper'></div>
-  `,
-  directives: [SuperMarqueeComponent, ValidateDirective, LooperDirective]
+  ` 
 })
-export class MyApp {
+export class MyAppComponent {
   
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, SuperMarqueeComponent, ValidateDirective, LooperDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

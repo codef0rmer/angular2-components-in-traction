@@ -1,5 +1,6 @@
-import { Component, Injectable } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Injectable } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 const search_engine = 'google.com';
 
@@ -12,10 +13,9 @@ class LookupService {
 
 @Component({
   selector: 'ng-app',
-  template: '<div [innerHTML]="message"></div>',
-  providers: [LookupService]
+  template: '<div [innerHTML]="message"></div>'
 })
-export class MyApp {
+export class MyAppComponent {
   message: string;
   
   constructor(public Lookup: LookupService) {
@@ -23,4 +23,12 @@ export class MyApp {
   }
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent],
+  imports:      [BrowserModule],
+  providers:    [LookupService],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

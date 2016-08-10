@@ -1,5 +1,6 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Input, Output, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -100,10 +101,9 @@ class AdiaSpinnerDirective implements OnInit {
         </div>
       </div>
     </div>
-  `,
-  directives: [AdiaSpinnerDirective]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   weekday: {value: number, text: string};
   rating: {value: number, text: string};
 
@@ -120,4 +120,11 @@ export class MyApp {
   };
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, AdiaSpinnerDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

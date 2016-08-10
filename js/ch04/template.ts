@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Input } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'super-marquee,[super-marquee],.super-marquee',
@@ -22,11 +23,17 @@ class SuperMarqueeComponent {
     <div super-marquee [data-text]="'<span>Angular2 </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>'"></div>
     <!-- Class -->
     <div class='super-marquee' [data-text]="'<span>Angular2 </span><span>Directives </span><span>inAction, </span><span>Yey..!!</span>'"></div>
-  `,
-  directives: [SuperMarqueeComponent]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, SuperMarqueeComponent],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

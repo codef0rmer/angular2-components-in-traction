@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Input, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'adia-spinner',
@@ -59,11 +60,17 @@ class AdiaSpinnerDirective implements OnInit {
   template: `
     <adia-spinner [data-default]="value" [data-min]="1" [data-max]="5" [data-interval]="2"></adia-spinner>
     <adia-spinner [data-type]="'list'" [data-list]="['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']"></adia-spinner>
-  `,
-  directives: [AdiaSpinnerDirective]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   value: number = 1;
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, AdiaSpinnerDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

@@ -1,5 +1,6 @@
-import { Component, Directive, ElementRef, OnInit, AfterViewInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Directive, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 declare var $: any;
 
@@ -116,11 +117,17 @@ class LooperDirective implements AfterViewInit {
 
     <!-- Class -->
     <!-- <div class='super-marquee looper validate' data-text="AngularJS Directives inAction, Yey..!!" data-scrolldelay="10" data-direction="right" data-wavedelay="0.015"></div> -->
-  `,
-  directives: [SuperMarqueeComponent, ValidateDirective, LooperDirective]
+  `
 })
-export class MyApp {
+export class MyAppComponent {
   
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, SuperMarqueeComponent, ValidateDirective, LooperDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

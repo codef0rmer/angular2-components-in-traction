@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Input } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'ceo',
@@ -37,8 +38,7 @@ class CEOComponent {
 
       <ceo [bod]="person"></ceo>
     </div>
-  `,
-  directives: [CEOComponent]
+  `
 })
 class BODComponent {
   person: Object = {
@@ -53,11 +53,17 @@ class BODComponent {
 
 @Component({
   selector: 'ng-app',
-  template: '<bod></bod>',
-  directives: [BODComponent]
+  template: '<bod></bod>'
 })
-export class MyApp {
+export class MyAppComponent {
   
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, BODComponent, CEOComponent],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);

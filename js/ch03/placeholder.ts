@@ -1,10 +1,11 @@
-import { Component, Directive, ElementRef, Renderer } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Directive, Renderer, ElementRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Directive({
   selector: '[onImageLoad]'
 })
-export class onImageLoad {
+export class OnImageLoadDirective {
   constructor(private _renderer: Renderer, private _element: ElementRef) {
     this._renderer.listen(this._element.nativeElement, 'load', () => {
       this._renderer.setElementStyle(this._element.nativeElement, 'display', '');
@@ -29,10 +30,9 @@ export class onImageLoad {
   template: `
     <img [src]="userImage" class="img-circle" onImageLoad />
     <img [src]="userImageFail" class="img-circle" onImageLoad />
-  `,
-  directives: [onImageLoad]
+  `
 })
-export class Placeholder {
+export class MyAppComponent {
   userImage: string;
   userImageFail: string;
   
@@ -42,4 +42,11 @@ export class Placeholder {
   }
 }
 
-bootstrap(Placeholder);
+@NgModule({
+  declarations: [MyAppComponent, OnImageLoadDirective],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);
