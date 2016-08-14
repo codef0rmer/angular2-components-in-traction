@@ -22,10 +22,10 @@ Using the Companion Suite
  * [twoway-databinding.html](https://amitgharat.wordpress.com/2016/06/19/angular2-data-binding/)
 
 *Chapter 2: ch02/*
- * provider.html
- * pipe.html
  * component.html
  * component-nested.html
+ * provider.html
+ * pipe.html
  * instant-search.html
 
 *Chapter 3: ch03/*
