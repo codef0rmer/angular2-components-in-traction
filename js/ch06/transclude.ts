@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
+import { NgModule, Component, Input, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'alert',
@@ -26,11 +27,17 @@ class AlertComponent implements OnInit {
   template: `
     <alert data-state="'warning'"><b>Hang on..!</b> Document may take some time to upload.</alert>
     <alert data-state="'success'"><b>Well done..!</b> You jump to the next level.</alert>
-  `,
-  directives: [AlertComponent]
+  `
 })
-export class MyApp {
+class MyAppComponent {
 
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent, AlertComponent],
+  imports:      [BrowserModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);
