@@ -1,42 +1,25 @@
-AngularJS Directives in Traction
+Angular2 Components in Traction (WIP)
 =========
 
-AngularJS is a super-heroic JavaScript Framework that makes writing single page applications a breeze. It allows you to expand HTML vocabulary by creating custom tags with a help of directive definition object. AngularJS bundled with a set of directives like ngRepeat, ngModel, ngView which make it really easy to build an application but many a times the existing directives fell short considering the need and complexity you are dealing with. And you face the problem head-on when it comes to build directives from ground ups. This book teaches you to extend AngularJS by writing custom directives and motivates to understand the purpose of testing by facilitating Test Driven Development through out the book.
-
-**[AngularJS Directives in Traction](https://amitgharat.wordpress.com/2015/07/28/angularjs-directives-in-traction/)** helps you understand how built-in directives work and teaches you to build custom directives on your own. Ultimately, Angular Directives will be the magic revealed for you.
+This is a clone of examples from [AngularJS Directives in Traction](https://github.com/codef0rmer/angular-directives-in-traction) that are converted to Angular2 and I'm probably going to write a separate blog post for each.
 
 Installation
 --------------
-Please download the source code and put it in the root directory of any web server installed on your system. **Web Server is a must for protractor tests to run.**
+Please download the source code and put it in the root directory of any web server installed on your system. NodeJS and NPM are prerequisite.
 
-NodeJS and NPM are prerequisite.
 ```sh
-cd Angular Directives in Traction/
-bower install
+cd angular2-components-in-traction
 npm install
 npm run typings install
-npm install -g karma-cli
-node_modules/protractor/bin/webdriver-manager update
 npm start
-```
-
-There are chapter wise folders you can go through to check out examples.
-
-Run tests
--------------
-First of all, **update baseUrl in e2e.conf.js** accordingly. Then run:
-```sh
-npm run test-unit
-
-npm run test-e2e
 ```
 
 Using the Companion Suite
 -------------------------
 *Chapter 1: ch01/*
- * angular-template.html
- * twoway-databinding.html
- * di.html
+ * [angular-template.html](https://amitgharat.wordpress.com/2016/01/08/angular2-the-first-time/)
+ * [di.html](https://amitgharat.wordpress.com/2016/02/14/angular2-dependency-injection/)
+ * [twoway-databinding.html](https://amitgharat.wordpress.com/2016/06/19/angular2-data-binding/)
 
 *Chapter 2: ch02/*
  * provider.html
@@ -76,17 +59,6 @@ Using the Companion Suite
  * watch-spinner.html
  * image-lazy-loader.html
  * image-lazy-loader-fixed.html
- 
-Table of Contents
------------
-
-1. AngularJS Directives: A forerunner of Web Components
-2. AngularJS Fundamentals: A Crash Course
-3. Testing the Beast: Unit testing and E2E testing
-4. Building your first HTML element using the API
-5. Understanding Scope in Directives for better context
-6. Crafting directives to handle Complex Scenarios
-7. Bringing directives to Life
 
 License
 ----
