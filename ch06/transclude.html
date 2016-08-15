@@ -1,4 +1,4 @@
-<html ng-app="TranscludeApp">
+<html>
 <head>
   <title>Transclude</title>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
   <!-- 2. Configure SystemJS -->
   <script src="../systemjs.config.js"></script>
   <script>
-    System.import('../js/ch06/transclude.js').catch(function(err){ console.error(err); });
+    System.import('ch06/transclude').catch(function(err){ console.error(err); });
   </script>
 </head>
 <body style="padding: 50px;">

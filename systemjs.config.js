@@ -10,6 +10,7 @@
     'ch03':                       '../js/ch03',
     'ch04':                       '../js/ch04',
     'ch05':                       '../js/ch05',
+    'ch06':                       '../js/ch06',
     '@angular':                   '../node_modules/@angular',
     'angular2-in-memory-web-api': '../node_modules/angular2-in-memory-web-api',
     'rxjs':                       '../node_modules/rxjs'
@@ -21,6 +22,7 @@
     'ch03':                       { main: '*.js', defaultExtension: 'js' },
     'ch04':                       { main: '*.js', defaultExtension: 'js' },
     'ch05':                       { main: '*.js', defaultExtension: 'js' },
+    'ch06':                       { main: '*.js', defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' }
   };
