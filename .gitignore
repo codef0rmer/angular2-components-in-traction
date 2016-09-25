@@ -3,5 +3,6 @@ todo.TODO
 *.map
 .DS_Store
 js/**/*.js
+tests/**/*.js
 typings/
 npm-debug.log

@@ -10,7 +10,8 @@
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\""
   },
   "repository": "",
   "keywords": [

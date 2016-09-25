@@ -10,8 +10,8 @@ Please download the source code and put it in the root directory of any web serv
 ```sh
 cd angular2-components-in-traction
 npm install
-npm run typings install
 npm start
+npm test
 ```
 
 Using the Companion Suite
