@@ -1,7 +1,4 @@
-import { NgModule, Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ng-app',
@@ -14,12 +11,3 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 export class DataBindingComponent {
   choose: boolean = true;
 }
-
-@NgModule({
-  declarations: [DataBindingComponent],
-  imports:      [BrowserModule, FormsModule],
-  bootstrap:    [DataBindingComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

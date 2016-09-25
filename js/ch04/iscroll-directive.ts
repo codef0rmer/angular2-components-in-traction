@@ -1,13 +1,11 @@
-import { NgModule, Component, Directive, ElementRef, AfterViewInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Directive, ElementRef, AfterViewInit } from '@angular/core';
 
 declare var IScroll;
 
 @Directive({
   selector: '[iscroll]'
 })
-class IscrollDirective implements AfterViewInit {
+export class IscrollDirective implements AfterViewInit {
   constructor(private _element: ElementRef) {
     
   }
@@ -55,12 +53,3 @@ export class MyAppComponent {
     'Now You See Me'
   ];
 }
-
-@NgModule({
-  declarations: [MyAppComponent, IscrollDirective],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

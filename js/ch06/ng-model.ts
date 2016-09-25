@@ -1,10 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic'
-
+import { NgModule, Component, Input, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 @Component({
   selector: 'ng-app',
   template: `
-    
+    <form #MyForm role="form">
+      <div class="alert alert-success" [hidden]="MyForm.dirty"><b>Want to Join a Dream Company?</b></div>
+      <div class="alert alert-info" [hidden]="MyForm.pristine"><b>Focus on your strengths to attract more recruiters!</b></div>
+      <div class="form-group" [class.has-error]="MyForm.email.invalid">
+        <label class="control-label" for="email">Email address</label>
+        <input type="email" name="email" class="form-control" placeholder="Enter email" [ngModel]="email" is-unique>
+      </div>
+    </form>
   `
   // <div name="MyForm" role="form">
   //   <!-- <input ng-model="input" numeric ng-keypress="foobar()"> -->
@@ -23,11 +31,18 @@ import { bootstrap } from '@angular/platform-browser-dynamic'
   //   <button type="submit" class="btn btn-primary" ng-click="email = '';relocate = false;MyForm.$setPristine();">Apply</button>
   // </div>
 })
-export class MyApp {
+export class MyAppComponent {
 
 }
 
-bootstrap(MyApp);
+@NgModule({
+  declarations: [MyAppComponent],
+  imports:      [BrowserModule, FormsModule],
+  bootstrap:    [MyAppComponent]
+})
+export default class MyAppModule {}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);
 // var App = angular.module('ngModelApp', []);
 
 // // EXPERIMENTAL!

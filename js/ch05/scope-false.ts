@@ -1,6 +1,4 @@
-import { NgModule, Component, Input, Output } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Input, Output } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -13,7 +11,7 @@ import { Subject } from 'rxjs/Subject';
     </div>
   `
 })
-class AdiaSpinnerDirective {
+export class AdiaSpinnerDirective {
   @Input() val: number;
   @Output() valChange = new Subject();
 
@@ -44,12 +42,3 @@ class AdiaSpinnerDirective {
 export class MyAppComponent {
   value: number = 1;
 }
-
-@NgModule({
-  declarations: [MyAppComponent, AdiaSpinnerDirective],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

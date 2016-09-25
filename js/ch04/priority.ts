@@ -1,6 +1,4 @@
-import { NgModule, Component, Directive, ElementRef, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Directive, ElementRef, OnInit } from '@angular/core';
 
 declare var $: any;
 
@@ -8,7 +6,7 @@ declare var $: any;
   selector: 'super-marquee,[super-marquee],.super-marquee',
   template: '<marquee><div class="wave"><span>AngularJS </span><span>Directives </span><span>inAction, </span>Yey..!!</div></marquee>'
 })
-class SuperMarqueeComponent {
+export class SuperMarqueeComponent {
   constructor() {
 
   }
@@ -17,7 +15,7 @@ class SuperMarqueeComponent {
 @Directive({
   selector: '[looper],.looper'
 })
-class LooperDirective implements OnInit {
+export class LooperDirective implements OnInit {
   constructor(private _element: ElementRef) {
     
   }
@@ -44,7 +42,7 @@ class LooperDirective implements OnInit {
 @Directive({
   selector: '[validate],.validate'
 })
-class ValidateDirective implements OnInit {
+export class ValidateDirective implements OnInit {
   constructor(private _element: ElementRef) {
     
   }
@@ -79,12 +77,3 @@ class ValidateDirective implements OnInit {
 export class MyAppComponent {
   
 }
-
-@NgModule({
-  declarations: [MyAppComponent, SuperMarqueeComponent, ValidateDirective, LooperDirective],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

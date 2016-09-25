@@ -1,12 +1,10 @@
-import { NgModule, Component, ElementRef, Renderer } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, ElementRef, Renderer } from '@angular/core';
 
 @Component({
   selector: 'super-marquee,[super-marquee],.super-marquee',
   template: ''
 })
-class SuperMarqueeComponent {
+export class SuperMarqueeComponent {
   constructor(private _element: ElementRef, private _renderer: Renderer) {
     var scrollingText = `<marquee>
       <div class="wave">
@@ -37,12 +35,3 @@ class SuperMarqueeComponent {
 export class MyAppComponent {
   
 }
-
-@NgModule({
-  declarations: [MyAppComponent, SuperMarqueeComponent],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

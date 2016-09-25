@@ -1,11 +1,9 @@
-import { NgModule, Component, Injectable } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Injectable } from '@angular/core';
 
 const search_engine = 'google.com';
 
 @Injectable()
-class LookupService {
+export class LookupService {
   find(): string {
     return 'Searching in http://' + search_engine + ' for the sake of knowing...';
   } 
@@ -22,13 +20,3 @@ export class MyAppComponent {
     this.message = this.Lookup.find();
   }
 }
-
-@NgModule({
-  declarations: [MyAppComponent],
-  imports:      [BrowserModule],
-  providers:    [LookupService],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

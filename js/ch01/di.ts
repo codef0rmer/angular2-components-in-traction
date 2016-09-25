@@ -1,9 +1,7 @@
-import { NgModule, Component, Injectable } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Injectable } from '@angular/core';
 
 @Injectable()
-class HelloService {
+export class HelloService {
   name: string;
   
   greet(who) {
@@ -21,13 +19,3 @@ export class DIComponent {
     console.log(this.Hello.name);
   }
 }
-
-@NgModule({
-  declarations: [DIComponent],
-  imports:      [BrowserModule],
-  providers:    [HelloService],
-  bootstrap:    [DIComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

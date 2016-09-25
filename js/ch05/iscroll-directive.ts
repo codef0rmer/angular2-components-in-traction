@@ -1,13 +1,11 @@
-import { NgModule, Component, Directive, AfterViewChecked, AfterViewInit, ElementRef, Input } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Directive, AfterViewChecked, AfterViewInit, ElementRef, Input } from '@angular/core';
 
 declare var IScroll;
 
 @Directive({
   selector: '[iscroll]'
 })
-class IscrollDirective implements AfterViewInit, AfterViewChecked {
+export class IscrollDirective implements AfterViewInit, AfterViewChecked {
   @Input('data-scrollbars') scrollbars: boolean;
   @Input('data-mousewheel') mousewheel: boolean;
   myScroll: any;
@@ -64,12 +62,3 @@ export class MyAppComponent {
     'Now You See Me'
   ];
 }
-
-@NgModule({
-  declarations: [MyAppComponent, IscrollDirective],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

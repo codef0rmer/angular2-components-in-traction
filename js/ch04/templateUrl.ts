@@ -1,12 +1,10 @@
-import { NgModule, Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'super-marquee,[super-marquee],.super-marquee',
-  templateUrl: 'templateUrl-partial.html'
+  templateUrl: 'ch04/templateUrl-partial.html'
 })
-class SuperMarqueeComponent {
+export class SuperMarqueeComponent {
   constructor() {
 
   }
@@ -28,12 +26,3 @@ class SuperMarqueeComponent {
 export class MyAppComponent {
   
 }
-
-@NgModule({
-  declarations: [MyAppComponent, SuperMarqueeComponent],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

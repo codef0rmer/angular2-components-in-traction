@@ -3,19 +3,20 @@
   <title>iScroll Angular Directive</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
 
   <!-- 1. Load libraries -->
-  <script src="../node_modules/core-js/client/shim.min.js"></script>
-  <script src="../node_modules/zone.js/dist/zone.js"></script>
-  <script src="../node_modules/reflect-metadata/Reflect.js"></script>
-  <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/iscroll/build/iscroll.js"></script>
-  <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/iscroll/build/iscroll.js"></script>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
   <!-- 2. Configure SystemJS -->
-  <script src="../systemjs.config.js"></script>
+  <script src="systemjs.config.js"></script>
   <script>
-    System.import('ch04/iscroll-directive').catch(function(err){ console.error(err); });
+    System.import('ch04/iscroll-directive.module').catch(function(err){ console.error(err); });
   </script>
   <style type="text/css">
     #wrapper {

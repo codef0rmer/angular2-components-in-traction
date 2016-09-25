@@ -1,12 +1,9 @@
-import { NgModule, Component, Pipe, PipeTransform } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'linky'
 })
-class LinkyPipe implements PipeTransform {
+export class LinkyPipe implements PipeTransform {
   transform(message: string): string {
     return message.replace(/((ftp|https?):\/\/|(www\.)|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"\u201d\u2019]/i, function(text, link) {
       return '<a href="'+ text +'">'+ text +'</a>';
@@ -17,7 +14,7 @@ class LinkyPipe implements PipeTransform {
 @Pipe({
   name: 'uppercase'
 })
-class UppercasePipe implements PipeTransform {
+export class UppercasePipe implements PipeTransform {
   transform(message: string): string {
     return message.replace(/(?:^|\s)\w/g, function(match) {
       return match.toUpperCase();
@@ -32,12 +29,3 @@ class UppercasePipe implements PipeTransform {
 export class MyAppComponent {
   message: string = 'Searching in http://bing.com for the sake of knowing...';
 }
-
-@NgModule({
-  declarations: [MyAppComponent, LinkyPipe, UppercasePipe],
-  imports:      [BrowserModule, FormsModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);

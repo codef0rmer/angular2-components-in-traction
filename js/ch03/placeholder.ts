@@ -1,6 +1,4 @@
-import { NgModule, Component, Directive, Renderer, ElementRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Directive, Renderer, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[onImageLoad]'
@@ -41,12 +39,3 @@ export class MyAppComponent {
     this.userImageFail = 'http://lorempixel.com/random';
   }
 }
-
-@NgModule({
-  declarations: [MyAppComponent, OnImageLoadDirective],
-  imports:      [BrowserModule],
-  bootstrap:    [MyAppComponent]
-})
-export default class MyAppModule {}
-
-platformBrowserDynamic().bootstrapModule(MyAppModule);
